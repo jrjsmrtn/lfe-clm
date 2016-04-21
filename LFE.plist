@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+
+<!--
+	BBEdit/TextWrangler Code-less Language Module for Lisp Flavoured Erlang
+	References: 
+		https://github.com/rvirding/lfe/blob/develop/doc/user_guide.txt
+		https://github.com/rvirding/lfe/blob/develop/emacs/lfe-mode.el
+		http://www.barebones.com/support/develop/clm.html
+		http://www.truerwords.net/articles/bbedit/codeless_language_module.html
+	Copyright (c) 2016 jrjsmrtn
+-->
+
+<dict>
+	<key>BBEditDocumentType</key>
+	<string>CodelessLanguageModule</string>
+	
+	<key>BBLMColorsSyntax</key>
+	<true/>
+	
+	<key>BBLMIsCaseSensitive</key>
+	<true/>
+	
+	<key>BBLMKeywordList</key>
+	<array>
+		<!-- Integers: Binary notation -->
+		<string>#b</string>
+		<string>#B</string>
+		<string>#b*</string>
+		<string>#B*</string>
+		<string>#*</string>
+
+		<!-- Integers: Octal notation -->
+		<string>#o</string>
+		<string>#O</string>
+		
+		<!-- Explicitly decimal notation -->
+		<string>#d</string>
+		<string>#D</string>
+		
+		<!-- Hexadecimal notation -->
+		<string>#x</string>
+		<string>#X</string>
+
+		<!-- TODO: Notation with explicit base (up to 36) -->
+		<!-- (#(?:[2-9]|[12][0-9]|3[0-6])[rR])[0-9a-zA-Z]+ -->
+		
+		<!-- Character notation -->
+		<string>#\</string>
+		<!-- FIXME: missing semicolon (#\\[xX])[0-9a-fA-F]+; -->
+		<string>#\x</string>
+		<string>#\X</string>
+		
+		<!-- Core Forms -->
+		<string>quote</string>
+		<string>cons</string>
+		<string>car</string>
+		<string>cdr</string>
+		<string>list</string>
+		<string>tuple</string>
+		<string>binary</string>
+		<string>map</string>
+		<string>map-get</string>
+		<string>map-set</string>
+		<string>map-upgrade</string>
+		<string>lambda</string>
+		<string>match-lambda</string>
+		<string>let</string>
+		<string>let-function</string>
+		<string>letrec-function</string>
+		<string>let-macro</string>
+		<string>progn</string>
+		<string>if</string>
+		<string>case</string>
+		<string>when</string>
+		<string>receive</string>
+		<string>after</string>
+		<string>catch</string>
+		<string>try</string>
+		<string>funcall</string>
+		<string>call</string>
+		<string>define-module</string>
+		<string>extend-module</string>
+		<string>define-function</string>
+		<string>define-macro</string>
+
+		<!-- Basic Macro Forms -->
+		<string>:</string>
+		<string>?</string>
+		<string>++</string>
+		<string>list*</string>
+		<string>let*</string>
+		<string>flet</string>
+		<string>flet*</string>
+		<string>fletrec</string>
+		<string>cond</string>
+		<string>?=</string>
+		<string>andalso</string>
+		<string>orelse</string>
+		<string>func</string>
+		<string>lc</string>
+		<string>list-comp</string>
+		<string>bc</string>
+		<string>binary-comp</string>
+		<string>match-spec</string>
+
+		<!-- Common Lisp inspired macros -->
+		<string>defun</string>
+		<string>defmacro</string>
+		<string>defsyntax</string>
+		<string>macrolet</string>
+		<string>syntaxlet</string>
+		<string>prog1</string>
+		<string>prog2</string>
+		<string>defmodule</string>
+		<string>defrecord</string>
+
+		<!-- Older Scheme inspired macros -->
+		<string>define</string>
+		<string>define-syntax</string>
+		<string>let-syntax</string>
+		<string>begin</string>
+		<string>define-record</string>
+
+		<!-- Patterns & Guards-->
+		<string>progn</string>
+		<string>type-test</string>
+		<string>guard-bif</string>
+		
+		<!-- Bindings and Scoping -->
+		<string>apply</string>
+		
+		<!-- Module definition -->
+		<string>export</string>
+		<string>import</string>
+		<string>from</string>
+		<string>rename</string>
+		<string>prefix</string>
+		
+		<!-- Binaries/bitstrings -->
+		<string>byte</string>
+		<string>string</string>
+		<string>val</string>
+		<string>integer</string>
+		<string>bitstring</string>
+		<string>bytes</string>
+		<string>bits</string>
+		<string>size</string>
+		<string>unit</string>
+		<string>big-endian</string>
+		<string>little-endian</string>
+		<string>native-endian</string>
+		<string>big</string>
+		<string>little</string>
+		<string>native</string>
+		<string>signed</string>
+		<string>unsigned</string>
+		
+		<!-- List/Binary comprehensions -->
+		<string>&lt;-</string>
+		<string>&lt;=</string>
+		
+		<!-- Query List Comprehensions -->
+		<string>qlc</string>
+		
+		<!-- Predefined LFE functions -->
+		<string>+</string>
+		<string>-</string>
+		<string>*</string>
+		<string>/</string>
+
+		<string>&gt;</string>
+		<string>&gt;=</string>
+		<string>&lt;</string>
+		<string>=&lt;</string>
+		<string>==</string>
+		<string>/=</string>
+		<string>=:=</string>
+		<string>=/=</string>
+
+		<string>acons</string>
+		<string>pairlis</string>
+		<string>assoc</string>
+		<string>assoc-if</string>
+		<string>assoc-if-not</string>
+		<string>rassoc</string>
+		<string>rassoc-if</string>
+		<string>rassoc-if-not</string>
+
+		<string>subst</string>
+		<string>subst-if</string>
+		<string>subst-if-not</string>
+		<string>substlis</string>
+
+		<string>macroexpand-1</string>
+		<string>macroexpand</string>
+		<string>macroexpand-all</string>
+
+		<string>eval</string>
+		
+		<!-- Supplemental Common Lisp Functions -->
+		<string>cl:make-lfe-bool</string>
+		<string>cl:make-cl-bool</string>
+
+		<string>cl:mapcar</string>
+		<string>cl:maplist</string>
+		<string>cl:mapc</string>
+		<string>cl:mapl</string>
+
+		<string>cl:symbol-plist</string>
+		<string>cl:symbol-name</string>
+		<string>cl:get</string>
+		<string>cl:getl</string>
+		<string>cl:putprop</string>
+		<string>cl:remprop</string>
+
+		<string>cl:getf</string>
+		<string>cl:putf</string>
+		<string>cl:remf</string>
+		<string>cl:get-properties</string>
+
+		<string>cl:elt</string>
+		<string>cl:length</string>
+		<string>cl:reverse</string>
+		<string>cl:some</string>
+		<string>cl:every</string>
+		<string>cl:notany</string>
+		<string>cl:notevery</string>
+		<string>cl:reduce</string>
+
+		<string>cl:remove</string>
+		<string>cl:remove-if</string>
+		<string>cl:remove-if-not</string>
+		<string>cl:remove-duplicates</string>
+		<string>cl:find</string>
+
+		<string>cl:find</string>
+		<string>cl:find-if</string>
+		<string>cl:find-if-not</string>
+		<string>cl:find-duplicates</string>
+		<string>cl:position</string>
+		<string>cl:position-if</string>
+		<string>cl:position-if-not</string>
+		<string>cl:position-duplicates</string>
+		<string>cl:count</string>
+		<string>cl:count-if</string>
+		<string>cl:count-if-not</string>
+		<string>cl:duplicates</string>
+
+		<string>cl:car</string>
+		<string>cl:first</string>
+		<string>cl:cdr</string>
+		<string>cl:rest</string>
+		<string>cl:nth</string>
+		<string>cl:nthcdr</string>
+		<string>cl:last</string>
+		<string>cl:butlast</string>
+
+		<string>cl:subst</string>
+		<string>cl:subst-if</string>
+		<string>cl:subst-if-not</string>
+		<string>cl:sublis</string>
+
+		<string>cl:member</string>
+		<string>cl:member-if</string>
+		<string>cl:member-if-not</string>
+		<string>cl:adjoin</string>
+		<string>cl:union</string>
+		<string>cl:intersection</string>
+		<string>cl:set-difference</string>
+		<string>cl:set-exclusive-or</string>
+		<string>cl:subsetp</string>
+
+		<string>cl:acons</string>
+		<string>cl:pairlis</string>
+		<string>cl:assoc</string>
+		<string>cl:assoc-if</string>
+		<string>cl:assoc-if-not</string>
+		<string>cl:rassoc</string>
+		<string>cl:rassoc-if</string>
+		<string>cl:rassoc-if-not</string>
+
+		<string>cl:type-of</string>
+		<string>cl:coerce</string>
+
+		<!-- Erlang predicate macros -->
+		<string>alivep</string>
+		<string>atomp</string>
+		<string>binaryp</string>
+		<string>bitstringp</string>
+		<string>boolp</string>
+		<string>booleanp</string>
+		<string>builtinp</string>
+		<string>floatp</string>
+		<string>funcp</string>
+		<string>functionp</string>
+		<string>intp</string>
+		<string>integerp</string>
+		<string>listp</string>
+		<string>mapp</string>
+		<string>numberp</string>
+		<string>pidp</string>
+		<string>process-alive-p</string>
+		<string>recordp</string>
+		<string>refp</string>
+		<string>referencep</string>
+		<string>tuplep</string>
+	</array>
+
+	<key>BBLMLanguageCode</key>
+	<string>lfe </string>
+
+	<key>BBLMLanguageDisplayName</key>
+	<string>Lisp Flavoured Erlang</string>
+
+	<key>BBLMPreferredFilenameExtension</key>
+	<string>lfe</string>
+
+	<key>BBLMScansFunctions</key>
+	<true/>
+
+	<key>BBLMSuffixMap</key>
+	<array>
+		<dict>
+			<key>BBLMLanguageSuffix</key>
+			<string>.lfe</string>
+		</dict>
+	</array>
+
+	<key>BBLMCommentLineDefault</key>
+	<string>;</string>
+
+	<key>Language Features</key>
+	<dict>
+		<key>Comment Pattern</key>
+		<string><![CDATA[
+			(?x:
+				(;.*$) 
+			)
+		]]></string>
+		
+		<key>String Pattern</key>
+		<string><![CDATA[
+			(?x:
+				(?:"(\\"|[^"\r])*")		  (?# List and Binary Strings)
+			)
+		]]></string>
+		
+		<key>Function Pattern</key>
+		<string><![CDATA[
+			(?x:
+				(?P<function>\(
+					\b(?i:(defun|defmethod|defmacro))\b\s+
+					(?P<function_name>(\w|\-|\!|\?)*)
+					([^()]*\((?>[^()]|(?5))*\)[^()]*)+
+				\))
+			)
+		]]></string>
+
+		<key>Identifier and Keyword Characters</key>
+		<string>!$%&amp;*+-./:&lt;=&gt;?@^_~0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz</string>
+	</dict>
+</dict>
+</plist>
