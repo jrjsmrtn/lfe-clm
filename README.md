@@ -1,2 +1,2 @@
 # lfe-clm
-BBEdit/TextWrangler Code-less Language Module for Lisp Flavored Erlang
+BBEdit/TextWrangler Code-less Language Module for Lisp Flavoured Erlang
